@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>programm 4</title>
+    <style>
+        body{
+            background-color: rgba(165, 42, 42, 0.363);
+          
+        }
+        div{
+            text-align: center;
+            font-weight: bold;
+            font-size: 150%;
+            margin-top: 10%;
+        }
+        button{
+            padding: 2px 7px 2px 7px;
+            font-weight: bold;
+            font-size: large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+        input{
+          padding: 2px 7px 2px 7px;
+          font-weight: bolds;
+          font-size: large;
+          border-radius: 4px;
+      }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="calculateTip">احسب الاكراميه</button>
+    <input id="bill" placeholder="إجمالي الفاتورة">
+<input id="tip" placeholder=" نسبه الاكراميه">
+
+<p id="result"></p>
+</div>
+<script>
+    document.getElementById("calculateTip").addEventListener("click", function() {
+    let bill = document.getElementById("bill").value;
+    let tip = document.getElementById("tip").value;
+    let result = document.getElementById("result");
+
+    // إذا كانت القيم المدخلة موجودة
+    if (bill && tip) {
+        let totalTip = (bill * tip) / 100;
+        result.textContent = "الاكراميه :" + totalTip;
+    } else {
+        result.textContent = "أدخل القيم بشكل صحيح.";
+    }
+});
+
+</script>
+</body>
+</html>

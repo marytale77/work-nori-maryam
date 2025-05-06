@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>ذكر عشوائي ناعم</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="azkar.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        .dhikr {
+            background-color: #ffffff;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            font-size: 24px;
+            font-weight: bold;
+            color: #006941;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 0.4s ease-in-out;
+        }
+        .dhikr.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+        <!-- Button to open the side menu -->
+<button class="menu-btn" id="menuBtn">☰ </button>
+<!-- Side navigation menu -->
+<div class="sidenav" id="sideMenu">
+<a href="D1.html">الصفحة الرئيسية</a>
+<a href="work1.html">أذكار الصباح</a>
+<a href="work2.html">أذكار المساء</a>
+<a href="work3.html">ذكر الخروج من المسجد </a>
+<a href="work4.html">ذكر الدخول الى المسجد </a>
+<a href="work5.html">اذكار النوم</a>
+<a href="30programm.html">30 programm</a>
+<a href="fav.html">الأذكار المفضلة</a>
+<a href="tasbeeh.html">عداد التسبيح</a>
+<button class="theme-toggle" id="toggleTheme">الوضع الليلي</button>
+<a href="quiz.html">اختبر معرفتك</a></div>
+    <h1>🕊️   اذكار</h1>
+    <div id="randomDhikr" class="dhikr">جاري تحميل الأذكار...</div>
+    <script src="azkarjs.js"></script>
+    <script>
+        const azkar = [
+            "اللّهُـمَّ أَنْتَ رَبِّـي لا إلهَ إلاّ أَنْتَ، خَلَقْتَنـي وَأَنا عَبْـدُك.",
+            "رَضيـتُ بِاللهِ رَبَّـاً وَبِالإسْلامِ ديـناً وَبِمُحَـمَّدٍ نَبِيّـاً.",
+            "اللّهُـمَّ اجعلني من التوابين، واجعلني من المتطهرين.",
+            "سُبْحـانَ اللهِ وَبِحَمْـدِهِ.",
+            "بِسْمِ اللهِ الَّذِي لا يَضُرُّ مَعَ اسْمِهِ شَيءٌ.",
+            "اللَّهُمَّ اجعل آخر كلامنا لا إله إلا الله"
+        ];
+
+        function updateDhikr() {
+            const randomText = azkar[Math.floor(Math.random() * azkar.length)];
+            const $dhikr = $('#randomDhikr');
+            $dhikr.removeClass('show');
+            setTimeout(() => {
+                $dhikr.text(randomText).addClass('show');
+            }, 200);
+        }
+
+        $(document).ready(function(){
+            updateDhikr(); // أول مرة
+            setInterval(updateDhikr, 3000); // كل 3 ثواني
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اختبار الأذكار</title>
+  <link rel="stylesheet" href="azkar.css">
+  <style>
+    .quiz-container {
+        text-align: center;
+        padding: 30px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .question {
+        background-color: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        font-size: 20px;
+    }
+    .answers button {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #006941;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .answers button:hover {
+        background-color: #01492e;
+    }
+    .timer {
+        font-size: 24px;
+        color: #006941;
+        margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+    <!-- Button to open the side menu -->
+<button class="menu-btn" id="menuBtn">☰ </button>
+<!-- Side navigation menu -->
+<div class="sidenav" id="sideMenu">
+<a href="D1.html">الصفحة الرئيسية</a>
+<a href="work1.html">أذكار الصباح</a>
+<a href="work2.html">أذكار المساء</a>
+<a href="work3.html">ذكر الخروج من المسجد </a>
+<a href="work4.html">ذكر الدخول الى المسجد </a>
+<a href="work5.html">اذكار النوم</a>
+<a href="fav.html">الأذكار المفضلة</a>
+<a href="tasbeeh.html">عداد التسبيح</a>
+<a href="random_azkar.html">اذكار عامه</a>
+<button class="theme-toggle" id="toggleTheme">الوضع الليلي</button>
+<a href="30programm.html">30 programm</a>
+</div>
+  <div class="quiz-container">
+    <div class="timer" id="timer">00:00</div>
+    <div class="question" id="question">السؤال سيظهر هنا...</div>
+    <div class="answers" id="answers"></div>
+    <p id="result"></p>
+    <button onclick="loadNextQuestion()" id="nextBtn" style="display:none;">السؤال التالي</button>
+  </div>
+  <script src="azkarjs.js"></script>
+
+  <script>
+    let seconds = 0;
+    let timerInterval;
+
+    const questions = [
+        {
+            q: "ما أول ذكر تقوله عند الاستيقاظ؟",
+            options: [
+                { text: "الحمد لله الذي أحيانا بعد ما أماتنا", correct: true },
+                { text: "سبحان الله وبحمده", correct: false },
+                { text: "بسم الله الذي لا يضر مع اسمه", correct: false }
+            ]
+        },
+        {
+            q: "ما الذكر الذي يقوله المسلم قبل النوم؟",
+            options: [
+                { text: "بسم الله الذي لا يضر مع اسمه", correct: false },
+                { text: "اللهم باسمك أموت وأحيا", correct: true },
+                { text: "لا حول ولا قوة إلا بالله", correct: false }
+            ]
+        },
+        {
+            q: "أي من التالي هو ذكر الركوب؟",
+            options: [
+                { text: "سبحان الذي سخر لنا هذا", correct: true },
+                { text: "اللهم إني أسألك العافية", correct: false },
+                { text: "رب اغفر لي", correct: false }
+            ]
+        }
+    ];
+
+    let current = 0;
+
+    function startTimer() {
+        seconds = 0;
+        clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+            seconds++;
+            const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+            const secs = String(seconds % 60).padStart(2, '0');
+            document.getElementById("timer").textContent = `${mins}:${secs}`;
+        }, 1000);
+    }
+
+    function renderQuestion(index) {
+        const qObj = questions[index];
+        document.getElementById("question").textContent = qObj.q;
+        const answersDiv = document.getElementById("answers");
+        answersDiv.innerHTML = "";
+        document.getElementById("result").textContent = "";
+        document.getElementById("nextBtn").style.display = "none";
+
+        qObj.options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.textContent = opt.text;
+            btn.onclick = () => checkAnswer(btn, opt.correct);
+            answersDiv.appendChild(btn);
+        });
+
+        startTimer();
+    }
+
+    function checkAnswer(button, isCorrect) {
+        clearInterval(timerInterval);
+        const result = document.getElementById("result");
+        result.textContent = isCorrect ? "✔️ إجابة صحيحة!" : "❌ إجابة خاطئة!";
+        result.style.color = isCorrect ? "green" : "red";
+        document.querySelectorAll("#answers button").forEach(btn => btn.disabled = true);
+        document.getElementById("nextBtn").style.display = "inline-block";
+    }
+
+    function loadNextQuestion() {
+        current++;
+        if (current < questions.length) {
+            renderQuestion(current);
+        } else {
+            document.getElementById("question").textContent = "🎉 لقد أكملت الاختبار!";
+            document.getElementById("answers").innerHTML = "";
+            document.getElementById("nextBtn").style.display = "none";
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        renderQuestion(current);
+    });
+  </script>
+</body>
+</html>

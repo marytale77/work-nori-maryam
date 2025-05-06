@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>متعقب النفقات</title>
+    <style>
+          body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 150%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 17px 2px 17px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+          input{
+            padding: 2px 17px 2px 17px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+        li{
+            font-weight: bolder;
+            font-size: 60%; 
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>متعقب النفقات</h1>
+    <input type="text" id="expenseName" placeholder="اسم النفقة">
+    <input type="number" id="expenseAmount" placeholder="المبلغ">
+    <button id="id">أضف النفقة</button>
+    <ul id="expenseList"></ul>
+</div>
+    <script>
+        const button=document.getElementById('id')
+        button.addEventListener('click',()=>{
+            const name = document.getElementById('expenseName').value;
+            const amount = document.getElementById('expenseAmount').value;
+            const list = document.getElementById('expenseList');
+            const li = document.createElement('li');
+            li.textContent = `${name}: ${amount} ريال`;
+            list.appendChild(li);
+            document.getElementById('expenseName').value = '';
+            document.getElementById('expenseAmount').value = '';
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>الصفحة الرئيسية</title>
+<style>
+        body {
+            background-color: #f1f8e9 ; /* خلفية هادئة بلون أخضر فاتح */
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* محاذاة النموذج في المنتصف */
+            align-items: center;
+            height: 100vh;
+            background-image: url(back.jpg) ;
+            
+        }
+
+        .form-container {
+            background-color: #ffffff; /* خلفية للنموذج */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px; /* تحديد عرض أقصى للنموذج */
+        }
+
+        h1 {
+            text-align: center;
+            color: #006941; /* لون الأخضر المناسب */
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color:  #006941;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="submit"], input[type="reset"] {
+            background-color: #006941;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #01492e; /* تأثير التمرير للأزرار */
+        }
+
+        .btn-container {
+            text-align: center;
+        }
+
+        .m6 {
+            background-color: #f1f8e9;
+            margin: 10px;
+            font-size: small;
+            color:#006941;
+        }
+
+        /* تغيير حجم النص */
+        .m6 {
+            padding: 8px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="form-container">
+<h1>معلومات التسجيل</h1>
+<form action="D1.html" method="post">
+<label for="name">اسم المستخدم</label>
+<input class="m" id="name" name="firstname" required="" type="text"/>
+<label for="email">البريد الالكتروني</label>
+<input class="m" id="gmail" name="email" required="" type="email"/>
+<label for="password">كـــلـــمــــة الـــــســـــر</label>
+<input class="m" id="password" name="password" required="" type="password"/>
+<div class="btn-container">
+<input type="submit" value="تسجيل"/>
+<input type="reset" value="إعادة تعيين"/>
+</div>
+</form>
+<button class="m6" onclick="changeFontSize('increase')">🔍 تكبير</button>
+<button class="m6" onclick="changeFontSize('decrease')">🔎 تصغير</button>
+</div>
+<script>
+    function changeFontSize(action) {
+        let body = document.body;
+        let currentSize = parseFloat(window.getComputedStyle(body, null).getPropertyValue('font-size'));
+
+        if (action === "increase") {
+            body.style.fontSize = (currentSize + 2) + "px";
+        } else if (action === "decrease") {
+            body.style.fontSize = (currentSize - 2) + "px";
+        }
+    }
+
+    // التحقق من البيانات عند تقديم النموذج
+    document.querySelector("form").addEventListener("submit", function(event) {
+        let email = document.getElementById("gmail").value;
+        let password = document.getElementById("password").value;
+    let username = document.getElementById("name").value;
+    localStorage.setItem('username', username);
+
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("يرجى إدخال بريد إلكتروني صحيح!");
+            event.preventDefault();
+        }
+
+        if (password.length < 6) {
+            alert("يجب أن تحتوي كلمة المرور على 6 أحرف على الأقل!");
+            event.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

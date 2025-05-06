@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Temperature Converter</title>
+    <style>
+        body{
+      background-color: rgba(165, 42, 42, 0.363);
+    
+  }
+  div{
+      text-align: center;
+      font-weight: bolder;
+      font-size: 350%;
+      margin-top: 10%;
+  }
+  button,option{
+      padding: 2px 37px 2px 37px;
+      font-weight: bolder;
+      font-size: x-large;
+      border-radius: 4px;
+      background-color: rgba(165, 42, 42, 0.664);
+  }
+  input,select{
+    padding: 2px 37px 2px 37px;
+    font-weight: bolder;
+    font-size: x-large;
+    border-radius: 4px;
+}
+
+</style>
+</head>
+<body>
+    <div>
+    <input id="temp" placeholder="أدخل الدرجة">
+<select id="unit">
+    <option value="C">Celsius</option>
+    <option value="F">Fahrenheit</option>
+</select>
+<button id="convertTemp">حوّل</button>
+<p id="tempResult"></p>
+</div>
+<script>
+    document.getElementById("convertTemp").addEventListener("click", () => {
+        const temp = parseFloat(document.getElementById("temp").value);
+        const unit = document.getElementById("unit").value;
+        const result = unit === "C" ? (temp * 9/5 + 32) : ((temp - 32) * 5/9);
+        document.getElementById("tempResult").textContent = `النتيجة: ${result.toFixed(2)}`;
+    });
+</script>
+
+</body>
+</html>

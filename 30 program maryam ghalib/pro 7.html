@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather app</title>
+    <style>
+                  body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 150%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 17px 2px 17px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+          input{
+            padding: 2px 17px 2px 17px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <p>أدخل مدينة:</p>
+<input id="city" placeholder="المدينة">
+<button id="getWeather">احصل على الطقس</button>
+<p id="weatherResult"></p>
+</div>
+<script>
+    document.getElementById("getWeather").addEventListener("click", async () => {
+        const city = document.getElementById("city").value;
+        const weatherResult = document.getElementById("weatherResult");
+
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ac3367d1647e477724a89cf70f3408c5
+&units=metric`);
+        const data = await response.json();
+
+        if (data.main) {
+            weatherResult.textContent = `درجة الحرارة في ${city}: ${data.main.temp}°C`;
+        } else {
+            weatherResult.textContent = "لم يتم العثور على الطقس.";
+        }
+    });
+</script>
+
+</body>
+</html>

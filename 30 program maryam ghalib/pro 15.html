@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memory game</title>
+    <style>
+        body{
+            background-color: rgba(165, 42, 42, 0.363);
+        }
+               div{
+            text-align: center;
+            font-weight: bolder;
+            font-size: xx-large;
+        }
+        button{
+            padding: 10px;
+            font-weight: bolder;
+            font-size: xx-large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+            margin: 25px;
+        }
+        p{
+            border: 2px;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.493);
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <button>🍎</button>
+<button>🍌</button>
+<button>🥝</button>
+<button>🥬</button>
+<button>🍒</button>
+<button>🍎</button>
+<button>🌽</button>
+<button>🍇</button>
+<button>🍏</button>
+<button>🥦</button>
+<button>🍉</button>
+<button>🍌</button>
+<button>🍉</button>
+<button>🥥</button>
+<button>🍏</button>
+<button>🍓</button>
+<button>🍋</button>
+<button>🥝</button>
+<button>🥐</button>
+<button>🍇</button>
+<button>🍓</button>
+<button>🍍</button>
+<button>🍋</button>
+<button>🍒</button>
+<button>🥥</button>
+<button>🍍</button>
+<button>🥦</button>
+<button>🥬</button>
+<button>🥐</button>
+<button>🌽</button>
+<p id="id"> </p>
+</div>
+<script>
+    let firstCard = null;
+    document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            btn.disabled = true;
+            if (!firstCard) {
+                firstCard = btn;
+            } else {
+                if (firstCard.textContent === btn.textContent) {
+                  //  alert("مطابقة!");
+                  document.getElementById('id').textContent="مــطــابــقــة ";
+                } else {
+                   // alert("غير مطابقة!");
+                   document.getElementById('id').textContent="غــيــر مــطــابــقــة ";
+                    firstCard.disabled = false;
+                    btn.disabled = false;
+                }
+                firstCard = null;
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

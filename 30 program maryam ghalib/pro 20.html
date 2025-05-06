@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body{
+            background-color: rgba(165, 42, 42, 0.363);
+        }
+        div{
+            text-align: center;
+            font-weight: bolder;
+            font-size: 350%;
+            margin-top: 10%;
+        }
+        button{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+        input{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <input id="height" placeholder="الطول بالمتر">
+    <input id="weight" placeholder="الوزن بالكيلو">
+    <button id="calcBMI">احسب</button>
+    <p id="bmiResult"></p>
+    </div>
+    <script>
+        document.getElementById("calcBMI").addEventListener("click", () => {
+            const h = parseFloat(document.getElementById("height").value);
+            const w = parseFloat(document.getElementById("weight").value);
+            const bmi = (w / (h * h)).toFixed(2);
+            document.getElementById("bmiResult").textContent = `BMI: ${bmi}`;
+        });
+    </script>
+     
+</body>
+</html>

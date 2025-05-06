@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجر ورقه مقص</title>
+    <style>
+        div{
+            text-align: center;
+            font-weight: bolder;
+            font-size: xx-large;
+        }
+        button{
+            padding: 10px;
+            font-weight: bolder;
+            font-size: xx-large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p> العب ! </p>
+    <button>حجر</button>
+<button>ورقة</button>
+<button>مقص</button>
+<p id="result"></p>
+ </div>
+<script>
+    const choices = ["حجر", "ورقة", "مقص"];
+    document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const user = btn.textContent;
+            const computer = choices[Math.floor(Math.random() * 3)];
+            let result = "تعادل!";
+            if (
+                (user === "حجر" && computer === "مقص") ||
+                (user === "ورقة" && computer === "حجر") ||
+                (user === "مقص" && computer === "ورقة")
+            ) {
+                result = "أنت فزت!";
+            } else if (user !== computer) {
+                result = "الكمبيوتر فاز!";
+            }
+            document.getElementById("result").textContent = `أنت: ${user}, كمبيوتر: ${computer}, ${result}`;
+        });
+    });
+</script>
+
+</body>
+</html>

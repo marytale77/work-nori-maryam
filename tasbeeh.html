@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>عداد التسبيح المميز</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="azkar.css">
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #f5f5f5;
+            color: #006941;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        .section {
+            background-color: #ffffff;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        .counter {
+            font-size: 72px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .timer {
+            font-size: 32px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #004d3c;
+        }
+        .btn {
+            padding: 12px 25px;
+            font-size: 18px;
+            margin: 10px 8px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        .btn-tasbeeh {
+            background-color: #006941;
+            color: white;
+        }
+        .btn-reset {
+            background-color: #999;
+            color: white;
+        }
+        .btn-timer {
+            background-color: #009688;
+            color: white;
+        }
+        .btn:active {
+            transform: scale(1.1);
+        }
+        #motivation {
+            font-size: 20px;
+            color: #d35400;
+            margin-top: 10px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Button to open the side menu -->
+<button class="menu-btn" id="menuBtn">☰ </button>
+<!-- Side navigation menu -->
+<div class="sidenav" id="sideMenu">
+<a href="D1.html">الصفحة الرئيسية</a>
+<a href="work1.html">أذكار الصباح</a>
+<a href="work2.html">أذكار المساء</a>
+<a href="work3.html">ذكر الخروج من المسجد </a>
+<a href="work4.html">ذكر الدخول الى المسجد </a>
+<a href="work5.html">اذكار النوم</a>
+<a href="30programm.html">30 programm</a>
+<a href="fav.html">الأذكار المفضلة</a>
+<a href="random_azkar.html">اذكار عامه</a>
+<button class="theme-toggle" id="toggleTheme">الوضع الليلي</button>
+<a href="quiz.html">اختبر معرفتك</a></div>
+    <h1>🧮 عداد التسبيح المميز</h1>
+
+    <div class="section">
+        <div class="counter" id="count">0</div>
+        <button class="btn btn-tasbeeh" onclick="increment()">سبّح</button>
+        <button class="btn btn-reset" onclick="resetCounter()">إعادة التصفير</button>
+        <div id="motivation"></div>
+    </div>
+
+    <div class="section">
+        <div class="timer" id="timer">00:00</div>
+        <button class="btn btn-timer" onclick="startTimer()">تشغيل</button>
+        <button class="btn btn-timer" onclick="stopTimer()">إيقاف</button>
+        <button class="btn btn-reset" onclick="resetTimer()">إعادة التوقيت</button>
+    </div>
+
+    <audio id="tickSound" src="https://www.fesliyanstudios.com/play-mp3/387" preload="auto"></audio>
+    <script src="azkarjs.js"></script>
+
+    <script>
+        let count = localStorage.getItem('tasbeehCount') || 0;
+        document.getElementById('count').textContent = count;
+
+        const motivationTexts = [
+            "🌟 ما شاء الله! استمر!",
+            "✨ نور على نور!",
+            "💚 زادك الله تسبيحًا!",
+            "🤲 الأجر عظيم بإذن الله!",
+            "🌸 سبحان الله وبحمده!"
+        ];
+
+        function increment() {
+            count++;
+            localStorage.setItem('tasbeehCount', count);
+            document.getElementById('count').textContent = count;
+
+            // تشغيل صوت
+            document.getElementById("tickSound").play();
+
+            // اهتزاز
+            if (navigator.vibrate) navigator.vibrate(80);
+
+            // رسالة تحفيزية كل 33 مرة
+            if (count % 5 === 0) {
+                const text = motivationTexts[Math.floor(Math.random() * motivationTexts.length)];
+                document.getElementById('motivation').textContent = text;
+            } else {
+                document.getElementById('motivation').textContent = "";
+            }
+        }
+
+        function resetCounter() {
+            count = 0;
+            localStorage.setItem('tasbeehCount', count);
+            document.getElementById('count').textContent = count;
+            document.getElementById('motivation').textContent = "";
+        }
+
+        // Timer functionality
+        let seconds = 0;
+        let timerInterval = null;
+
+        function updateTimerDisplay() {
+            const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+            const secs = String(seconds % 60).padStart(2, '0');
+            document.getElementById("timer").textContent = `${mins}:${secs}`;
+        }
+
+        function startTimer() {
+            if (timerInterval) return;
+            timerInterval = setInterval(() => {
+                seconds++;
+                updateTimerDisplay();
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function resetTimer() {
+            stopTimer();
+            seconds = 0;
+            updateTimerDisplay();
+        }
+
+        updateTimerDisplay();
+    </script>
+</body>
+</html>

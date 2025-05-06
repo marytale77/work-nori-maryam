@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Document</title>
+<link href="azkar.css" rel="stylesheet"/>
+<style>
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide-in-right.visible,
+.slide-in-up.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.favoriteBtn {
+  transition: transform 0.3s ease;
+}
+.favoriteBtn:hover {
+  animation: bounce 0.5s;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-8px); }
+  60%  { transform: translateY(4px); }
+  100% { transform: translateY(0); }
+}
+</style></head>
+<!-- 
+<style>
+ .a{
+        
+        border-radius: 50px;
+            color: rgba(11, 125, 218, 0.432);
+            margin: 10px 20px 20px;
+            padding: 700px 550px 800px 550px ;
+           
+        }
+    .li4{
+        background-color:rgba(11, 76, 218, 0.432) ;
+          margin: 30px 20px 0px 20px;
+          padding: 50px 50px 50px 50px; 
+        box-shadow: 0 2px 4px ;
+        text-align: center;
+        font-weight: bold;
+
+        }
+        
+      h2 , h1{
+color: darkred; 
+font-style: italic; 
+text-shadow: 20px;
+text-align: center;
+padding: 10px 20px  ;
+     }
+
+    </style> */ -->
+<body>
+<button class="menu-btn" id="menuBtn">☰ </button>
+<!-- Side navigation menu -->
+<div class="sidenav" id="sideMenu">
+<a href="D1.html">الصفحة الرئيسية</a>
+<a href="work1.html">أذكار الصباح</a>
+<a href="work2.html">أذكار المساء</a>
+<a href="30programm.html">30 programm</a>
+<a href="work4.html">ذكر الدخول الى المسجد </a>
+<a href="work5.html">اذكار النوم</a>
+<a href="fav.html">الأذكار المفضلة</a>
+<a href="quiz.html">اختبر معرفتك</a>
+<a href="tasbeeh.html">عداد التسبيح</a>
+<a href="random_azkar.html">اذكار عامه</a>
+
+<button class="theme-toggle" id="toggleTheme">الوضع الليلي</button>
+</div>
+<header><u>
+        دعاء الخروج من المسجد
+    </u></header>
+<p class="li4 slide-in-right">
+                ((يَبْدَأُ بِرِجْلِهِ الْيُسْرَى)) وَيَقُولُ: ((بِسْمِ اللَّهِ وَالصّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللَّهِ، اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنْ فَضْلِك، اللَّهُمَّ اعْصِمْنِي مِنَ الشَّيْطَانِ الرَّجِيمِ)).
+
+                <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+                </u></p>
+<script src="azkarjs.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".slide-in-right, .slide-in-up").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script></body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Pomodoro Timer</title>
+    <style>
+        body{
+            background-color: rgba(165, 42, 42, 0.363);
+        }
+        div{
+            text-align: center;
+            font-weight: bolder;
+            font-size: 350%;
+            margin-top: 10%;
+        }
+        button{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <p id="timer">25:00</p>
+<button id="start">ابدأ</button>
+</div>
+<script>
+    let seconds = 1500, interval;
+    document.getElementById("start").addEventListener("click", () => {
+        clearInterval(interval);
+        interval = setInterval(() => {
+            seconds--;
+            const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+            const secs = (seconds % 60).toString().padStart(2, '0');
+            document.getElementById("timer").textContent = `${mins}:${secs}`;
+            if (seconds <= 0) clearInterval(interval);
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>

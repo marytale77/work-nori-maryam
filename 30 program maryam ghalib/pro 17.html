@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+    <style>
+        body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 350%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 37px 2px 37px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+          input{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+      </style>
+</head>
+<body>
+    <div>
+    <input id="text" maxlength="100" placeholder="اكتب هنا">
+<p id="counter">0 / 100</p>
+</div>
+<script>
+    const input = document.getElementById("text");
+    input.addEventListener("input", () => {
+        document.getElementById("counter").textContent = `${input.value.length} / 100`;
+    });
+</script>
+
+</body>
+</html>

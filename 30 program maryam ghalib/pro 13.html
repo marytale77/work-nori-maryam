@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notes app</title>
+    <style>
+        body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 350%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 37px 2px 37px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+          input{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+        li{
+            font-weight: bolder;
+            font-size: 60%; 
+        }
+      </style>
+</head>
+<body>
+    <div>
+
+    
+    <input id="noteInput" placeholder="اكتب ملاحظة">
+<button id="addNote">حفظ</button>
+<ul id="notes"></ul>
+</div>
+<script>
+    document.getElementById("addNote").addEventListener("click", () => {
+        const note = document.getElementById("noteInput").value;
+        if (note) {
+            const item = document.createElement("li");
+            item.textContent = note;
+            document.getElementById("notes").appendChild(item);
+            document.getElementById("noteInput").value = "";
+        }
+    });
+</script>
+
+</body>
+</html>

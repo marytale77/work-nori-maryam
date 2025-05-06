@@ -1,0 +1,87 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>To-Do List</title>
+        <style>
+            .completed {
+                text-decoration: line-through; /* شطب النص لما تكون المهمة مكتملة */
+                color: gray;
+            }
+            body{
+            background-color: rgba(165, 42, 42, 0.363);
+          
+        }
+        div{
+            text-align: center;
+            font-weight: bold;
+            font-size: 150%;
+            margin-top: 10%;
+        }
+        button{
+            padding: 2px 7px 2px 7px;
+            font-weight: bold;
+            font-size: large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+        input{
+          padding: 2px 7px 2px 7px;
+          font-weight: bolds;
+          font-size: large;
+          border-radius: 4px;
+      }
+        
+        </style>
+    </head>
+    <body>
+        <div>
+        <h1>قائمة المهام</h1>
+        <input type="text" id="taskInput" placeholder="أدخل مهمة جديدة">
+        <button id="addTask">أضف المهمة</button>
+        <ul id="taskList"></ul>
+    </div>
+        <script>
+            const taskInput = document.getElementById("taskInput");
+            const addTaskButton = document.getElementById("addTask");
+            const taskList = document.getElementById("taskList");
+    
+            // إضافة مهمة جديدة
+            addTaskButton.addEventListener("click", () => {
+                const taskText = taskInput.value.trim();
+                if (taskText === "") return; // إذا ما فيه نص، ما يضيف شي
+    
+                const li = document.createElement("li");
+                li.textContent = taskText;
+    
+                // زر "اكتملت"
+                const completeButton = document.createElement("button");
+                completeButton.textContent = "✔️";
+                completeButton.style.marginLeft = "10px";
+                completeButton.addEventListener("click", () => {
+                    li.classList.toggle("completed"); // يضيف أو يزيل الشطب
+                });
+    
+                // زر "حذف"
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "❌";
+                deleteButton.style.marginLeft = "5px";
+                deleteButton.addEventListener("click", () => {
+                    li.remove(); // يحذف العنصر
+                });
+    
+                // إضافة المهمة مع الأزرار
+                li.appendChild(completeButton);
+                li.appendChild(deleteButton);
+                taskList.appendChild(li);
+    
+                taskInput.value = ""; // يمسح النص من الحقل
+            });
+        </script>
+    </body>
+    </html>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأذكار المفضلة</title>
+    <link rel="stylesheet" href="azkar.css">
+</head>
+<body>
+    <!-- Button to open the side menu -->
+<button class="menu-btn" id="menuBtn">☰ </button>
+
+<!-- Side navigation menu -->
+<div class="sidenav" id="sideMenu">
+    <a href="D1.html">الصفحة الرئيسية</a>
+    <a href="work1.html">أذكار الصباح</a>
+    <a href="work2.html">أذكار المساء</a>
+    <a href="work3.html">ذكر الخروج من المسجد </a>
+    <a href="work4.html">ذكر الدخول الى المسجد </a>
+    <a href="work5.html">اذكار النوم</a>
+    <a href="quiz.html">اختبر معرفتك</a>
+    <a href="tasbeeh.html">عداد التسبيح</a>
+<a href="random_azkar.html">اذكار عامه</a>
+<a href="30programm.html">30 programm</a>
+
+    <button class="theme-toggle" id="toggleTheme">الوضع الليلي</button>
+
+</div>
+    <header>الأذكار المفضلة</header>
+
+    <div id="favoritesList">
+        <!-- ستظهر الأذكار المفضلة هنا -->
+    </div>
+    <script src="azkarjs.js"></script>
+    <script>
+     // جافا سكربت لعرض الأذكار المفضلة
+     window.onload = function() {
+            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            let favoritesList = document.getElementById('favoritesList');
+            
+            // إذا كانت المفضلات فارغة، نعرض رسالة
+            if (favorites.length === 0) {
+                favoritesList.innerHTML = "<p>لا توجد أذكار مفضلة.</p>";
+            } else {
+                // إذا كانت هناك مفضلات، نعرضها
+                favorites.forEach((favorite, index) => {
+                    let p = document.createElement('p');
+                    p.textContent = favorite; // عرض الذكر داخل <p>
+                    
+                    // إضافة زر لحذف الذكر من المفضلة
+                    let removeBtn = document.createElement('button');
+                    removeBtn.textContent = "إزالة من المفضلة";
+                    removeBtn.style.backgroundColor = "red";
+                    removeBtn.style.color = "white";
+                    removeBtn.style.marginLeft = "10px";
+                    removeBtn.addEventListener('click', function() {
+                        // إزالة الذكر من المفضلة
+                        favorites.splice(index, 1); // إزالة الذكر من المصفوفة
+                        localStorage.setItem('favorites', JSON.stringify(favorites)); // تحديث localStorage
+
+                        // إعادة تحميل الصفحة لعرض التغييرات
+                        window.location.reload();
+                    });
+
+                    // إضافة زر الحذف إلى الذكر
+                    p.appendChild(removeBtn);
+                    favoritesList.appendChild(p);
+                });
+            }
+        }
+    </script>
+</body>
+</html>

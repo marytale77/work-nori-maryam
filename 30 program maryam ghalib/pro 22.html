@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+    <style>
+      body{
+            background-color: rgba(165, 42, 42, 0.363);
+        }
+        div{
+            text-align: center;
+            font-weight: bolder;
+            font-size: 350%;
+            margin-top: 10%;
+        }
+        button{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+        p{
+            border: solid 4px rgba(165, 42, 42, 0.664);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button id="generate">توليد كلمة مرور</button>
+        <p id="password"></p>
+        
+        <script>
+            document.getElementById("generate").addEventListener("click", () => {
+                const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+                let password = "";
+                for (let i = 0; i < 10; i++) {
+                    password += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                document.getElementById("password").textContent = password;
+            });
+        </script>
+         
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <style>
+        body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 350%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 37px 2px 37px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+          input{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+      </style>
+</head>
+<body>
+    <div>
+        <input id="word" placeholder="اكتب الكلمة">
+<button id="checkPalindrome">تحقق</button>
+<p id="result"></p>
+
+<script>
+    document.getElementById("checkPalindrome").addEventListener("click", () => {
+        const word = document.getElementById("word").value.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+        const isPalindrome = word === word.split('').reverse().join('');
+        document.getElementById("result").textContent = isPalindrome ? "Palindrome" : "Not Palindrome";
+    });
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch with Laps</title>
+    <style>
+                body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 350%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 37px 2px 37px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+          input{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+        li{
+              border: solid 4px rgba(165, 42, 42, 0.664);
+              border-radius: 3px;
+          }
+    </style>
+</head>
+<body>
+    <div>
+    <p id="timer">0</p>
+    <button id="start">ابدأ</button>
+    <button id="stop">توقف</button>
+    <button id="lap">لفّة</button>
+    <ul id="laps"></ul>
+    </div>
+    <script>
+        let time = 0, interval;
+        document.getElementById("start").addEventListener("click", () => {
+            clearInterval(interval);
+            interval = setInterval(() => document.getElementById("timer").textContent = ++time, 1000);
+        });
+        document.getElementById("stop").addEventListener("click", () => clearInterval(interval));
+        document.getElementById("lap").addEventListener("click", () => {
+            const lap = document.createElement("li");
+            lap.textContent = `لفّة: ${time}`;
+            document.getElementById("laps").appendChild(lap);
+        });
+    </script>
+      
+</body>
+</html>

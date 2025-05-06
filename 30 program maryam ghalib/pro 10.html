@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer </title>
+    <style>
+       body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 150%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 17px 2px 17px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+    </style>
+</head>
+<body>
+    <div>
+    <p id="timer">00:00:00</p>
+    <button id="start">ابدأ</button>
+    <button id="stop">أوقف</button>
+    <button id="reset">إعادة</button>
+</div>
+    <script>
+        let seconds = 0;
+        let interval = null;
+    
+        const timer = document.getElementById("timer");
+    
+        function updateTimer() {
+            const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+            const mins = String(Math.floor(seconds / 60) % 60).padStart(2, '0');
+            const secs = String(seconds % 60).padStart(2, '0');
+            timer.textContent = `${hrs}:${mins}:${secs}`;
+        }
+    
+        document.getElementById("start").onclick = () => {
+            if (!interval) interval = setInterval(() => {
+                seconds++;
+                updateTimer();
+            }, 1000);
+        };
+    
+        document.getElementById("stop").onclick = () => {
+            clearInterval(interval);
+            interval = null;
+        };
+    
+        document.getElementById("reset").onclick = () => {
+            clearInterval(interval);
+            interval = null;
+            seconds = 0;
+            updateTimer();
+        };
+    </script>
+       
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <style>
+        body{
+            background-color: rgba(165, 42, 42, 0.363);
+        }
+        div{
+            text-align: center;
+            font-weight: bolder;
+            font-size: 350%;
+            margin-top: 10%;
+        }
+        button{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <button id="roll">ارمِ النرد</button>
+<p id="diceResult"></p>
+</div>
+<script>
+    document.getElementById("roll").addEventListener("click", () => {
+        const result = Math.floor(Math.random() * 6) + 1;
+        document.getElementById("diceResult").textContent = `النتيجة: ${result}`;
+    });
+</script>
+
+</body>
+</html>

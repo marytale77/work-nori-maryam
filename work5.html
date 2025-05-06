@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Document</title>
+<link href="azkar.css" rel="stylesheet"/>
+<style>
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide-in-up {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide-in-right.visible,
+.slide-in-up.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.favoriteBtn {
+  transition: transform 0.3s ease;
+}
+.favoriteBtn:hover {
+  animation: bounce 0.5s;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-8px); }
+  60%  { transform: translateY(4px); }
+  100% { transform: translateY(0); }
+}
+</style></head>
+<body>
+<!-- Button to open the side menu -->
+<button class="menu-btn" id="menuBtn">☰ </button>
+<!-- Side navigation menu -->
+<div class="sidenav" id="sideMenu">
+<a href="D1.html">الصفحة الرئيسية</a>
+<a href="work1.html">أذكار الصباح</a>
+<a href="work2.html">أذكار المساء</a>
+<a href="work3.html">ذكر الخروج من المسجد </a>
+<a href="work4.html">ذكر الدخول الى المسجد </a>
+<a href="30programm.html">30 programm</a>
+<a href="fav.html">الأذكار المفضلة</a>
+<a href="quiz.html">اختبر معرفتك</a>
+<a href="tasbeeh.html">عداد التسبيح</a>
+<a href="random_azkar.html">اذكار عامه</a>
+<button class="theme-toggle" id="toggleTheme">الوضع الليلي</button>
+</div>
+<input id="searchInput" placeholder="ابحث عن الذكر..." type="text"/>
+ٍ<div class="main-content">
+<header>اذكار النوم</header>
+<p class="li4 slide-in-right">
+            الحَمْدُ لِلَّهِ الذي أَطْعَمَنَا وَسَقَانَا، وَكَفَانَا وَآوَانَا، فَكَمْ مِمَّنْ لا كَافِيَ له وَلَا مُؤْوِيَ
+            <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+            </u>
+</p>
+<p class="li4 slide-in-up">
+        اللَّهمَّ أنتَ خلَقْتَ نفسي وأنتَ تتوفَّاها لك مماتُها ومحياها اللَّهمَّ إنْ توفَّيْتَها فاغفِرْ لها وإنْ أحيَيْتَها فاحفَظْها اللَّهمَّ إنِّي أسأَلُك العافيةَ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-right">
+        اللَّهمَّ ربَّ السَّمواتِ وربَّ الأرضِ وربَّ العرشِ العظيمِ ربَّنا وربَّ كلِّ شيءٍ فالقَ الحَبِّ والنَّوى مُنزِلَ التَّوراةِ والإنجيلِ والفُرقانِ أعوذُ بك مِن شرِّ كلِّ شيءٍ أنتَ آخِذٌ بناصيتِه أنتَ الأوَّلُ فليس قبْلَك شيءٌ وأنتَ الآخِرُ فليس بعدَك شيءٌ وأنتَ الظَّاهرُ فليس فوقَك شيءٌ اقْضِ عنَّا الدَّينَ وأغنِنا مِن الفقرِ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-up">
+        اللَّهُمَّ إنِّي أعوذُ بوَجهِكَ الكَريمِ، وكَلِماتِكَ التَّامَّةِ، مِن شرِّ ما أنتَ آخِذٌ بناصيَتِه، اللَّهُمَّ أنتَ تَكشِفُ المَغرَمَ والمَأثَمَ، اللَّهُمَّ لا يُهزَمُ جُندُك، ولا يُخلَفُ وَعدُكَ، ولا يَنفَعُ ذا الجَدِّ منكَ الجَدُّ، سُبْحانَكَ وبحَمْدِكَ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-right">
+        باسْمِكَ ربِّ وَضَعْتُ جنْبِي وبِكَ أَرفَعُهُ، إن أمسَكْت نفْسِي فارحَمْها، وإنْ أرسَلْتَها فاحْفَظْها بما تَحفَظُ به عبادَك الصَّالِحِينَ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-up">
+        باسْمِكَ اللَّهُمَّ أمُوتُ وأَحْيَا
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-right">
+        اللَّهمَّ إنِّي أسلَمْتُ نفسي إليك ووجَّهْتُ وجهي إليك وألجَأْتُ ظهري إليك وفوَّضْتُ أمري إليك رغبةً ورهبةً إليك لا ملجأَ ولا منجا منك إلَّا إليك آمَنْتُ بكتابِك الَّذي أنزَلْتَ ونبيِّك الَّذي أرسَلْتَ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-up">
+        لا إلَهَ إلَّا اللَّهُ وحْدَهُ لا شَرِيكَ له، له المُلْكُ وله الحَمْدُ، وهو علَى كُلِّ شيءٍ قَدِيرٌ، الحَمْدُ لِلَّهِ، وسُبْحَانَ اللَّهِ، ولَا إلَهَ إلَّا اللَّهُ، واللَّهُ أَكْبَرُ، ولَا حَوْلَ ولَا قُوَّةَ إلَّا باللَّهِ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-right">
+        قُلْ هُوَ اللَّـهُ أَحَدٌ*اللَّـهُ الصَّمَدُ*لَمْ يَلِدْ وَلَمْ يُولَدْ*وَلَمْ يَكُن لَّهُ كُفُوًا أَحَدٌ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-up">
+        قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ*مِن شَرِّ مَا خَلَقَ*وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ*وَمِن شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ*وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-right">
+        قُلْ أَعُوذُ بِرَبِّ النَّاسِ*مَلِكِ النَّاسِ*إِلَـهِ النَّاسِ*مِن شَرِّ الْوَسْوَاسِ الْخَنَّاسِ*الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ*مِنَ الْجِنَّةِ وَالنَّاسِ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-up">
+        قُلْ يَا أَيُّهَا الْكَافِرُونَ*لَا أَعْبُدُ مَا تَعْبُدُونَ*وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ*وَلَا أَنَا عَابِدٌ مَّا عَبَدتُّمْ*وَلَا أَنتُمْ عَابِدُونَ مَا أَعْبُدُ*لَكُمْ دِينُكُمْ وَلِيَ دِينِ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-right">
+        اللَّـهُ لَا إِلَـٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَّهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<p class="li4 slide-in-up">
+        آمَنَ الرَّسُولُ بِمَا أُنزِلَ إِلَيْهِ مِن رَّبِّهِ وَالْمُؤْمِنُونَ كُلٌّ آمَنَ بِاللَّـهِ وَمَلَائِكَتِهِ وَكُتُبِهِ وَرُسُلِهِ لَا نُفَرِّقُ بَيْنَ أَحَدٍ مِّن رُّسُلِهِ وَقَالُوا سَمِعْنَا وَأَطَعْنَا غُفْرَانَكَ رَبَّنَا وَإِلَيْكَ الْمَصِيرُ*لَا يُكَلِّفُ اللَّـهُ نَفْسًا إِلَّا وُسْعَهَا لَهَا مَا كَسَبَتْ وَعَلَيْهَا مَا اكْتَسَبَتْ رَبَّنَا لَا تُؤَاخِذْنَا إِن نَّسِينَا أَوْ أَخْطَأْنَا رَبَّنَا وَلَا تَحْمِلْ عَلَيْنَا إِصْرًا كَمَا حَمَلْتَهُ عَلَى الَّذِينَ مِن قَبْلِنَا رَبَّنَا وَلَا تُحَمِّلْنَا مَا لَا طَاقَةَ لَنَا بِهِ وَاعْفُ عَنَّا وَاغْفِرْ لَنَا وَارْحَمْنَا أَنتَ مَوْلَانَا فَانصُرْنَا عَلَى الْقَوْمِ الْكَافِرِينَ
+        <br/>
+<button class="favoriteBtn" style="background-color: transparent; font-size: 24px; border: none; cursor: pointer; transition: transform 0.3s ease;">💚</button>
+<u class="counter">1
+        </u>
+</p>
+<script src="azkarjs.js"></script>
+</div><script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll(".slide-in-right, .slide-in-up").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script></body>
+</html>

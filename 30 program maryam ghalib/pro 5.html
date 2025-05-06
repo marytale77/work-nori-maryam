@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>programm 5</title>
+</head>
+<style>
+                      body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 150%;
+              margin-top: 10%;
+          }
+          textarea{
+            padding: 2px 17px 2px 17px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+            border: solid 4px rgba(165, 42, 42, 0.781);
+        }
+</style>
+<body>
+    <div>
+    <textarea id="textInput" placeholder="أدخل النص هنا"></textarea>
+<p>عدد الكلمات: <span id="wordCount">0</span></p>
+<p>عدد الحروف: <span id="charCount">0</span></p>
+</div>
+<script>
+    const input =  document.getElementById("textInput")
+  input.addEventListener("input", function() {
+    let text = this.value;
+    let words = text.split(" ").filter(word => word.length > 0).length;
+    let chars = text.length;
+
+    document.getElementById("wordCount").textContent = words;
+    document.getElementById("charCount").textContent = chars;
+});
+
+</script>
+</body>
+</html>

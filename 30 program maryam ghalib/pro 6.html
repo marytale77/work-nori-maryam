@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz app </title>
+    <style>
+                      body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 150%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 17px 2px 17px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+    </style>
+</head>
+<body>
+    <div>
+    <div id="question">ما عاصمة فرنسا؟</div>
+<button class="answer" data-correct="true">باريس</button>
+<button class="answer">لندن</button>
+<button class="answer">روما</button>
+<p id="score">النتيجة: 0</p>
+</div>
+<script>
+    const answers = document.querySelectorAll(".answer");
+    let score = 0;
+
+    answers.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            if (btn.dataset.correct) score++;
+            document.getElementById("score").textContent = "النتيجة: " + score;
+        });
+    });
+</script>
+
+</body>
+</html>

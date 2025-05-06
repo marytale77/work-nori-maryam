@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>اذاكار</title>
+<style>
+    body {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        background-color: rgba(34, 120, 55, 0.650);
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 900px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+        text-align: center;
+        color: #006941;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.7;
+        color: #333;
+        margin: 20px;
+    }
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 10px;
+        background-color: #006941;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+    }
+    a:hover {
+        background-color: #01492e;
+    }
+    #welcome {
+        font-size: 22px;
+        color: #ffffff;
+        text-align: center;
+        margin: 20px;
+    }
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    margin-top: 30px;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+.buttons-grid a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 16px;
+}
+
+.hidden-buttons {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.hidden-buttons.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 0 20px;
+}
+.container {
+    padding: 30px 20px 20px 20px;
+}
+
+#welcome {
+    margin-bottom: 10px;
+}
+.container h2 {
+    margin-bottom: 10px;
+}
+p {
+    margin-bottom: 10px !important;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 0 30px;
+}
+.buttons-grid a {
+    width: 100%;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div id="welcome"></div>
+<div class="container">
+<header>
+<h1>
+فــضــل الــذكــر
+    </h1>
+</header>
+<hr/>
+<blockquote>
+<bdo dir="rtl">
+<p>إنَّ معنى الذِّكر هو الثَّناء على الله وتنزيهه وتمجيده وتقديسه وحمده وتسبيحه وشكره على ما أنعم, فما خلق الله من خلق على هذه الأرض إلَّا ليذكره ويعبده ويحمده ويثني عليه، حيث قال الله -تعالى-: (وَمَا خَلَقْتُ الْجِنَّ وَالْإِنْسَ إِلَّا لِيَعْبُدُونِ)]ويقول الله -سبحانه وتعالى-: (الَّذِينَ آَمَنُوا وَتَطْمَئِنُّ قُلُوبُهُمْ بِذِكْرِ اللَّهِ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ)،[٣] فاطمئنان القلب يرتبط بذكر الله -تعالى-؛ لأنَّ الذِّكر مفتاح الأمان والاطمئنان، وهو سرٌ بين العبد وربِّه، وفيه يستشعر العبد قربه من الله ويزيد من روحانيته ورقَّة قلبه، وشغل العبد لسانه بذكر الله خيرٌ له من أن يشغله في الكلام العادي الذي قد يكون من الغيبة والنَّميمة
+    
+</p>
+</bdo>
+</blockquote>
+<u>
+<h2>قــائـــمــــة الاذكـــــــار</h2>
+<hr/>
+</u>
+<hr/>
+<br/>
+<br/>
+<div class="buttons-grid hidden-buttons"><a class="a" href="work1.html" target="_blank">اذكـــــــــــار الـــصباح </a><a class="a" href="work2.html" target="_blank">اذكــــــــــــار الـــمساء</a><a class="a1" href="work3.html" target="_blank">اذكار الخروج من المسجد</a><a class="a1" href="work4.html" target="_blank"> اذكار الدخول من المسجد</a><a class="a1" href="work5.html" target="_blank">اذكــــــــــــار الــــــنــــوم</a><a class="a1" href="work6.html" target="_blank">اذكــارالاستيقاظ من النوم</a></div></div>
+<script>
+  window.onload = function() {
+    const username = localStorage.getItem('username');
+    if (username) {
+      document.getElementById('welcome').textContent = "👋 مرحباً بك يا " + username + "!";
+    }
+  };
+</script>
+<script>
+  window.addEventListener('scroll', function() {
+    const grid = document.querySelector('.hidden-buttons');
+    const rect = grid.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top < windowHeight - 100) {
+      grid.classList.add('visible');
+    }
+  });
+</script>
+</body>
+</html>

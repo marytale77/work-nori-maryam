@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing App</title>
+    <style>
+            body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 350%;
+              margin-top: 10%;
+          }
+          canvas{
+            border: 5px solid rgba(165, 42, 42, 0.856);
+          }
+    </style>
+</head>
+<body>
+  <div>
+    <canvas id="draw" width="300" height="300"></canvas>
+</div>
+<script>
+    const canvas = document.getElementById("draw");
+    const ctx = canvas.getContext("2d");
+    canvas.addEventListener("mousemove", e => {
+        if (e.buttons) ctx.fillRect(e.offsetX, e.offsetY, 2, 2);
+    });
+</script>
+
+    
+</body>
+</html>

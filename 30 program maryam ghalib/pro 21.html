@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer</title>
+    <style>
+        body{
+            background-color: rgba(165, 42, 42, 0.363);
+        }
+        div{
+            text-align: center;
+            font-weight: bolder;
+            font-size: 350%;
+            margin-top: 10%;
+        }
+        button{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+            background-color: rgba(165, 42, 42, 0.664);
+        }
+        input{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <input id="time" placeholder="عدد الثواني">
+    <button id="startTimer">ابدأ</button>
+    <p id="countdown"></p>
+    </div>
+    <script>
+        document.getElementById("startTimer").addEventListener("click", () => {
+            let seconds = parseInt(document.getElementById("time").value);
+            const interval = setInterval(() => {
+                document.getElementById("countdown").textContent = seconds;
+                if (seconds <= 0) clearInterval(interval);
+                seconds--;
+            }, 1000);
+        });
+    </script>
+     
+</body>
+</html>

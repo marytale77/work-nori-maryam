@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قائمة المهام</title>
+    <style>
+        body{
+              background-color: rgba(165, 42, 42, 0.363);
+            
+          }
+          div{
+              text-align: center;
+              font-weight: bolder;
+              font-size: 350%;
+              margin-top: 10%;
+          }
+          button{
+              padding: 2px 37px 2px 37px;
+              font-weight: bolder;
+              font-size: x-large;
+              border-radius: 4px;
+              background-color: rgba(165, 42, 42, 0.664);
+          }
+          li{
+              border: solid 4px rgba(165, 42, 42, 0.664);
+              border-radius: 3px;
+          }
+          input{
+            padding: 2px 37px 2px 37px;
+            font-weight: bolder;
+            font-size: x-large;
+            border-radius: 4px;
+        }
+      </style>
+</head>
+<body>
+    <div>
+    <h2>قائمة المهام</h2>
+    
+    <!-- واجهة إضافة مهام -->
+    <input type="text" id="newTask" placeholder="أضف مهمة جديدة">
+    <button id="addTask">أضف المهمة</button>
+
+    <ul id="tasks">
+        <!-- المهام ستضاف هنا -->
+    </ul>
+</div>
+    <script>
+        const addButton = document.getElementById("addTask");
+        const taskInput = document.getElementById("newTask");
+        const tasksList = document.getElementById("tasks");
+
+        // وظيفة إضافة المهمة الجديدة
+        addButton.addEventListener("click", () => {
+            const taskText = taskInput.value.trim(); // جلب النص المدخل في المربع
+            if (taskText) {
+                // إنشاء عنصر قائمة جديد
+                const newTask = document.createElement("li");
+                newTask.textContent = taskText;
+                newTask.id = "task" + (tasksList.children.length + 1); // تعيين معرف فريد للمهمة
+                newTask.setAttribute("draggable", "true"); // تعيين خاصية السحب
+
+                // إضافة المهمة الجديدة إلى القائمة
+                tasksList.appendChild(newTask);
+
+                // إعادة تعيين مربع النص بعد الإضافة
+                taskInput.value = "";
+            }
+        });
+
+        // التعامل مع سحب وإفلات المهام
+        tasksList.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData("text", e.target.id); // حفظ الـ id للمهمة المسحوبة
+        });
+
+        tasksList.addEventListener("dragover", (e) => {
+            e.preventDefault(); // السماح بإفلات العنصر
+        });
+
+        tasksList.addEventListener("drop", (e) => {
+            e.preventDefault();
+            const draggedId = e.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(draggedId);
+            const targetElement = e.target;
+
+            if (targetElement.tagName.toLowerCase() === 'li' && targetElement !== draggedElement) {
+                tasksList.insertBefore(draggedElement, targetElement.nextSibling); // تغيير الترتيب
+            }
+        });
+    </script>
+</body>
+</html>
